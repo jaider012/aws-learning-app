@@ -1,75 +1,138 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { Link } from 'expo-router';
+import React from 'react';
+import { ScrollView, StyleSheet } from 'react-native';
+
+import {
+    Box,
+    Button,
+    ButtonText,
+    Heading,
+    HStack,
+    Progress,
+    ProgressFilledTrack,
+    Text,
+    VStack,
+} from '@gluestack-ui/themed';
 
 import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
-export default function HomeScreen() {
+export default function DashboardScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <ThemedView style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <Box p={16} mb={16}>
+          <HStack alignItems="center" space="md">
+            <HelloWave />
+            <VStack>
+              <Text size="sm" color="$secondary500">Welcome back</Text>
+              <Heading size="xl">John Doe</Heading>
+            </VStack>
+          </HStack>
+        </Box>
+
+        <Box p={16} mb={16} bg="$backgroundCardLight" borderRadius={12}>
+          <Heading size="md" mb={10}>Progress Overview</Heading>
+          
+          <VStack space="lg" mb={16}>
+            <Box>
+              <HStack justifyContent="space-between" mb={4}>
+                <Text fontWeight="$medium">AWS Solutions Architect</Text>
+                <Text>65%</Text>
+              </HStack>
+              <Progress value={65} size="md">
+                <ProgressFilledTrack />
+              </Progress>
+            </Box>
+            
+            <Box>
+              <HStack justifyContent="space-between" mb={4}>
+                <Text fontWeight="$medium">AWS Developer</Text>
+                <Text>42%</Text>
+              </HStack>
+              <Progress value={42} size="md">
+                <ProgressFilledTrack />
+              </Progress>
+            </Box>
+            
+            <Box>
+              <HStack justifyContent="space-between" mb={4}>
+                <Text fontWeight="$medium">AWS SysOps</Text>
+                <Text>28%</Text>
+              </HStack>
+              <Progress value={28} size="md">
+                <ProgressFilledTrack />
+              </Progress>
+            </Box>
+          </VStack>
+
+          <Link href="/analytics" asChild>
+            <Button variant="outline" size="sm">
+              <ButtonText>View Detailed Progress</ButtonText>
+            </Button>
+          </Link>
+        </Box>
+
+        <Box p={16} mb={16} bg="$backgroundCardLight" borderRadius={12}>
+          <Heading size="md" mb={10}>Recent Flashcard Decks</Heading>
+          
+          <VStack space="md" mb={16}>
+            <HStack justifyContent="space-between" p={10} bg="$backgroundCardLightHover" borderRadius={8}>
+              <Text fontWeight="$medium">EC2 Essentials</Text>
+              <Text>Last studied 2d ago</Text>
+            </HStack>
+            
+            <HStack justifyContent="space-between" p={10} bg="$backgroundCardLightHover" borderRadius={8}>
+              <Text fontWeight="$medium">S3 Storage Options</Text>
+              <Text>Last studied 4d ago</Text>
+            </HStack>
+            
+            <HStack justifyContent="space-between" p={10} bg="$backgroundCardLightHover" borderRadius={8}>
+              <Text fontWeight="$medium">IAM Best Practices</Text>
+              <Text>Last studied 1w ago</Text>
+            </HStack>
+          </VStack>
+
+          <Link href="/flashcards" asChild>
+            <Button variant="outline" size="sm">
+              <ButtonText>View All Decks</ButtonText>
+            </Button>
+          </Link>
+        </Box>
+
+        <Box p={16} mb={16} bg="$backgroundCardLight" borderRadius={12}>
+          <Heading size="md" mb={10}>Learning Paths</Heading>
+          
+          <VStack space="md" mb={16}>
+            <Box p={10} bg="$backgroundCardLightHover" borderRadius={8}>
+              <Text fontWeight="$medium">AWS Solutions Architect Associate</Text>
+              <Text size="sm" color="$secondary500">13 modules • 65% complete</Text>
+            </Box>
+            
+            <Box p={10} bg="$backgroundCardLightHover" borderRadius={8}>
+              <Text fontWeight="$medium">AWS Developer Associate</Text>
+              <Text size="sm" color="$secondary500">11 modules • 42% complete</Text>
+            </Box>
+          </VStack>
+
+          <Link href="/learning-paths" asChild>
+            <Button variant="outline" size="sm">
+              <ButtonText>View All Paths</ButtonText>
+            </Button>
+          </Link>
+        </Box>
+      </ScrollView>
+    </ThemedView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  container: {
+    flex: 1,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  scrollContainer: {
+    paddingHorizontal: 16,
+    paddingTop: 60,
+    paddingBottom: 100,
   },
 });
