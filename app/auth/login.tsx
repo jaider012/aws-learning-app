@@ -37,7 +37,7 @@ export default function Login() {
         <VStack space="md">
           <Center>
             <Image
-              source={require("../../assets/images/aws-logo.png")}
+              source={require("../../assets/images/react-logo.png")}
               alt="AWS Learning"
               width={150}
               height={100}

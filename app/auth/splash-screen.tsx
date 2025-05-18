@@ -34,7 +34,7 @@ export default function SplashScreen() {
     <Center flex={1} bg="$backgroundLight100">
       <VStack space="lg" alignItems="center">
         <Image
-          source={require('../../assets/images/aws-logo.png')}
+          source={require('../../assets/images/react-logo.png')}
           alt="AWS Learning"
           width={200}
           height={150}

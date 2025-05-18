@@ -1,25 +1,25 @@
 import {
-    Box,
-    Button,
-    ButtonText,
-    Center,
-    Checkbox,
-    CheckboxIcon,
-    CheckboxIndicator,
-    CheckboxLabel,
-    CheckIcon,
-    FormControl,
-    FormControlLabel,
-    FormControlLabelText,
-    Heading,
-    HStack,
-    Image,
-    Input,
-    InputField,
-    LinkText,
-    Pressable,
-    Text,
-    VStack,
+  Box,
+  Button,
+  ButtonText,
+  Center,
+  Checkbox,
+  CheckboxIcon,
+  CheckboxIndicator,
+  CheckboxLabel,
+  CheckIcon,
+  FormControl,
+  FormControlLabel,
+  FormControlLabelText,
+  Heading,
+  HStack,
+  Image,
+  Input,
+  InputField,
+  LinkText,
+  Pressable,
+  Text,
+  VStack,
 } from '@gluestack-ui/themed';
 import { router } from 'expo-router';
 import React, { useState } from 'react';
@@ -46,7 +46,7 @@ export default function Register() {
         <VStack space="md">
           <Center>
             <Image
-              source={require('../../assets/images/aws-logo.png')}
+              source={require('../../assets/images/react-logo.png')}
               alt="AWS Learning"
               width={150}
               height={100}
