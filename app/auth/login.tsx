@@ -1,34 +1,34 @@
-import React, { useState } from 'react';
-import { router } from 'expo-router';
 import {
   Box,
   Button,
   ButtonText,
   Center,
   FormControl,
-  Heading,
-  Input,
-  InputField,
-  VStack,
   FormControlLabel,
   FormControlLabelText,
-  Text,
+  Heading,
+  Image,
+  Input,
+  InputField,
   LinkText,
   Pressable,
-  Image,
-} from '@gluestack-ui/themed';
+  Text,
+  VStack,
+} from "@gluestack-ui/themed";
+import { router } from "expo-router";
+import React, { useState } from "react";
 
 export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = () => {
     // TODO: Add authentication logic
-    router.replace('/');
+    router.replace("/");
   };
 
   const navigateToRegister = () => {
-    router.push('/auth/register');
+    router.push("/auth/register");
   };
 
   return (
@@ -37,7 +37,7 @@ export default function Login() {
         <VStack space="md">
           <Center>
             <Image
-              source={require('../../assets/images/aws-logo.png')}
+              source={require("../../assets/images/aws-logo.png")}
               alt="AWS Learning"
               width={150}
               height={100}
@@ -95,4 +95,4 @@ export default function Login() {
       </Box>
     </Center>
   );
-} 
+}

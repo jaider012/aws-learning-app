@@ -27,7 +27,7 @@ export default function FlashcardsScreen() {
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <Heading size="xl" mb={20}>Flashcard Decks</Heading>
         
-        <Tabs value={currentTab} onChange={(value: string) => setCurrentTab(value)}>
+        <Tabs value={currentTab} onValueChange={(value: string) => setCurrentTab(value)}>
           <TabsTabList>
             <TabsTab value="prebuilt">
               <Text>Pre-built</Text>
